@@ -1,6 +1,9 @@
 @extends('layouts.mazer.master-index')
 
 @section('content')
+    
+    @section('my-css')
+    @endsection
 
     <section class="section">
         <div class="row" id="table-hover-row">
@@ -268,5 +271,7 @@
         </div>
     @endforeach
      
+    @section('my-script')
+    @endsection
 
 @endsection

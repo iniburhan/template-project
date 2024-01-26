@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 // add
 use App\Models\Tables\Blog\MsKategori;
+use App\Models\Tables\HistoryLog;
 use Illuminate\Support\Facades\Auth;
 
 class MsKategoriController extends Controller
@@ -40,6 +41,13 @@ class MsKategoriController extends Controller
         ];
         // dd($data);
         $insert = MsKategori::insert($data);
+
+        $data_history  = [
+            'information' => 'Insert Data Kategori',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
 
         // redirect
         if ($insert) {
@@ -78,6 +86,13 @@ class MsKategoriController extends Controller
         // dd($data);
         $update = MsKategori::where('id', $request->id)->update($data);
 
+        $data_history  = [
+            'information' => 'Update Data Kategori',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
+
         if ($update) {
             return redirect('/kategori')->with('success', 'Data updated successfully.');
         } else {
@@ -98,6 +113,13 @@ class MsKategoriController extends Controller
         ];
         // dd($data);
         $delete = MsKategori::where('id', $request->id)->update($data);
+
+        $data_history  = [
+            'information' => 'Delete Data Kategori',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
 
         if ($delete) {
             return redirect('/kategori')->with('success', 'Data Deleted.');
@@ -125,6 +147,13 @@ class MsKategoriController extends Controller
         ];
         // dd($data);
         $restore = MsKategori::where('id', $request->id)->update($data);
+
+        $data_history  = [
+            'information' => 'Restore Data Kategori',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
         
         if ($restore) {
             return redirect('/kategori')->with('success', 'Data Restored.');

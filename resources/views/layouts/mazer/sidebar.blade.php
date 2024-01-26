@@ -62,6 +62,20 @@
                   </li> 
                </ul>
             </li>
+            <li class="sidebar-item active has-sub">
+               <a href="#" class='sidebar-link'>
+               <i class="bi bi-stack"></i>
+               <span>Personal Finance</span>
+               </a>
+               <ul class="submenu active">
+                  <li class="submenu-item active ">
+                     <a href="{{url('/pfa-income')}}" class="submenu-link">Income</a>
+                  </li>
+                  <li class="submenu-item  ">
+                     <a href="{{url('/pfa-outcome')}}" class="submenu-link">Outcome</a>
+                  </li> 
+               </ul>
+            </li>
             <li class="sidebar-item ">
                <a href="{{url('/trash')}}" class='sidebar-link'>
                <i class="bi bi-trash3-fill"></i>

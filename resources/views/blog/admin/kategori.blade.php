@@ -2,6 +2,9 @@
 
 @section('content')
 
+    @section('my-css')
+    @endsection
+
     <section class="section">
         <div class="row" id="table-hover-row">
             <div class="col-md-6">
@@ -263,6 +266,8 @@
             </div>
         </div>
     @endforeach
-    
+     
+    @section('my-script')
+    @endsection
 
 @endsection

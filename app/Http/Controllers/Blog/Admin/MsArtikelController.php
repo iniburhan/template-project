@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 // add
 use App\Models\Tables\Blog\MsArtikel;
 use App\Models\Tables\Blog\MsKategori;
+use App\Models\Tables\HistoryLog;
 use Illuminate\Support\Facades\Auth;
 
 class MsArtikelController extends Controller
@@ -62,6 +63,13 @@ class MsArtikelController extends Controller
         // dd($data);
         $insert = MsArtikel::insert($data);
 
+        $data_history  = [
+            'information' => 'Insert Data Artikel',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
+
         // redirect
         if ($insert) {
             return redirect('/artikel')->with('success', 'Data created successfully.');
@@ -111,6 +119,13 @@ class MsArtikelController extends Controller
         // dd($data);
         $update = MsArtikel::where('id', $request->id)->update($data);
 
+        $data_history  = [
+            'information' => 'Update Data Artikel',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
+
         if ($update) {
             return redirect('/artikel')->with('success', 'Data updated successfully.');
         } else {
@@ -125,6 +140,13 @@ class MsArtikelController extends Controller
         ];
         // dd($data);
         $delete = MsArtikel::where('id', $request->id)->update($data);
+
+        $data_history  = [
+            'information' => 'Delete Data Artikel',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
 
         if ($delete) {
             return redirect('/artikel')->with('success', 'Data Deleted.');
@@ -152,6 +174,13 @@ class MsArtikelController extends Controller
         ];
         // dd($data);
         $restore = MsArtikel::where('id', $request->id)->update($data);
+
+        $data_history  = [
+            'information' => 'Restore Data Artikel',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
         
         if ($restore) {
             return redirect('/artikel')->with('success', 'Data Restored.');

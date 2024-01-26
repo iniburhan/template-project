@@ -2,22 +2,18 @@
 
 @section('content')
 
-	@section('my-css')
-        <!-- Datatables -->
-        <link rel="stylesheet" href="{{asset('template/mazer/assets/extensions/simple-datatables/style.css')}}">
-        <link rel="stylesheet" href="{{asset('template/mazer//assets/compiled/css/table-datatable.css')}}">
+    @section('my-css')
     @endsection
 
     <section class="section">
         <div class="row" id="table-hover-row">
             <div class="col-md-6">
-                <h3 class="pt-3">Artikel</h3>
+                <h3 class="pt-3">Income</h3>
             </div>
             <div class="col-md-6 text-end">
-               <!--  <button type="button" class="btn icon icon-left btn-success mb-2 mt-3 btn-sm" data-bs-toggle="modal" data-bs-target="#create-modal">
+                <button type="button" class="btn icon icon-left btn-success mb-2 mt-3 btn-sm" data-bs-toggle="modal" data-bs-target="#create-modal">
                     <i data-feather="plus"></i> Add
-                </button> -->
-                <a href="{{url('/artikel/create')}}" class="btn icon icon-left btn-success mb-2 mt-3 btn-sm" role="button" aria-disabled="true"><i data-feather="plus"></i> Add Artikel</a>
+                </button>
             </div>
 
             @if(session()->has('error'))
@@ -45,40 +41,36 @@
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header" style="padding-bottom: 0px;">
-                        <h4 class="card-title">Data Artikel</h4>
+                    <div class="card-header" >
+                        <h4 class="card-title">Data Income</h4>
                     </div>
 
                     <div class="card-body table-responsive">
                         <!-- table hover -->
-                        
                         <div class="">
-                            <table class="table table-hover mb-0 display nowrap" id="table1">
+                            <table class="table table-hover mb-0 display nowrap" id="table-custom">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Judul Artikel</th>
-                                        <th>Kategori</th>
+                                        <th>Information Name</th>
                                         <th style="text-align:center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data['artikel'] as $item)
+                                    @foreach ($data['income'] as $item)
                                         <tr>
-                                            <td> {{ $loop->iteration }}</td>
-                                            <td> {{ $item->judul }} </td>
-                                            <td> {{ $item->nama_kategori }} </td>
+                                            <td>{{  $loop->iteration }}</td>
+                                            <td> {{ $item->information_name }} </td>
                                             <td style="text-align:center">
                                                 <form action="#" method="POST" style="text-align:center">
                                                     <input type="hidden" name="id" value = "{{$item->id}}">
 
-                                                    <!-- <button type="button" class="btn icon btn-primary" data-bs-toggle="modal"
+                                                    <button type="button" class="btn icon btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#show-modal{{$item->id}}"><i class="bi bi-eye text-white"></i>
-                                                    </button> -->
-                                                    <!-- <button type="button" class="btn icon btn-warning" data-bs-toggle="modal"
+                                                    </button>
+                                                    <button type="button" class="btn icon btn-warning" data-bs-toggle="modal"
                                                         data-bs-target="#edit-modal{{$item->id}}"><i class="bi bi-pencil"></i>
-                                                    </button> -->
-                                                    <a href="{{url('/artikel/edit/'.$item->id)}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-pencil"></i></a>
+                                                    </button>
 
                                                     @csrf
 
@@ -92,13 +84,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    {{--
+    
     <!-- The Modal Create-->
     <div class="modal fade" id="create-modal">
         <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
@@ -106,12 +97,12 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Kategori</h4>
+                    <h4 class="modal-title">Add Income Name</h4>
                     <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
-                <form action="{{ url('kategori/store') }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
+                <form action="{{ url('pfa-income/store') }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
                     <div class="modal-body">
 
                         @csrf
@@ -124,8 +115,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-12">
                                                       <div class="form-group">
-                                                        <label for="first-name-vertical">Nama Kategori</label>
-                                                        <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Kategori" required>
+                                                        <label for="first-name-vertical">Information Name</label>
+                                                        <input type="text" class="form-control" name="information_name" placeholder="Information Name" required>
                                                       </div>
                                                     </div>
                                                 </div>
@@ -146,24 +137,21 @@
             </div>
         </div>
     </div>
-    --}}
     
     <!-- The Modal Show-->
-    @foreach ($data['artikel'] as $item)
-
-    {{--
+    @foreach ($data['income'] as $item)
         <div class="modal fade" id="show-modal{{$item->id}}">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">{{ $item->nama_kategori }}</h4>
+                        <h4 class="modal-title">{{ $item->information_name }}</h4>
                         <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('kategori/update') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('pfa-income/update') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             @csrf
@@ -177,9 +165,9 @@
                                                     <div class="row">
                                                         <div class="col-md-12 col-12">
                                                             <div class="form-group">
-                                                                <label for="first-name-vertical">Nama Kategori</label>
+                                                                <label for="first-name-vertical">Information Name</label>
                                                                 <input type="hidden" name = "id" value = "{{$item->id}}">
-                                                                <input type="text" name="nama_kategori" value="{{ $item->nama_kategori }}" class="form-control" readonly>
+                                                                <input type="text" name="information_name" value="{{ $item->information_name }}" class="form-control" readonly>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -206,12 +194,12 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit Kategori</h4>
+                        <h4 class="modal-title">Edit Income Name</h4>
                         <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('kategori/update') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('pfa-income/update') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             @csrf
@@ -225,9 +213,9 @@
                                                     <div class="row">
                                                         <div class="col-md-12 col-12">
                                                             <div class="form-group">
-                                                                <label for="first-name-vertical">Nama Kategori</label>
+                                                                <label for="first-name-vertical">Information Name</label>
                                                                 <input type="hidden" name = "id" value = "{{$item->id}}">
-                                                                <input type="text" name="nama_kategori" value="{{ $item->nama_kategori }}" class="form-control" placeholder="Nama Kategori" required>
+                                                                <input type="text" name="information_name" value="{{ $item->information_name }}" class="form-control" placeholder="Information Name" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -248,7 +236,6 @@
                 </div>
             </div>
         </div>
-        --}}
 
         <!-- Modal Delete -->
         <div class="modal fade" id="delete-modal{{$item->id}}">
@@ -257,16 +244,16 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Delete {{$item->judul}}</h4>
+                        <h4 class="modal-title">Delete {{$item->information_name}}</h4>
                         <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('artikel/delete') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('pfa-income/delete') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id" value="{{$item->id}}">
                             @csrf  
-                            Delete data {{$item->judul}}?
+                            Delete data {{$item->information_name}}?
                         </div>
 
                     <!-- Modal footer -->
@@ -279,11 +266,8 @@
             </div>
         </div>
     @endforeach
-
+     
     @section('my-script')
-        <!-- Datatables -->
-        <script src="{{asset('template/mazer/assets/extensions/simple-datatables/umd/simple-datatables.js')}}"></script>
-        <script src="{{asset('template/mazer/assets/static/js/pages/simple-datatables.js')}}"></script>
     @endsection
 
 @endsection

@@ -41,6 +41,7 @@
       <script src="{{asset('template/mazer/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
       <script src="{{asset('template/mazer/assets/compiled/js/app.js')}}"></script>
 
+      <!-- add Jquery -->
       <script src="{{asset('template/mazer/assets/extensions/jquery/jquery.min.js')}}"></script>
 
       @yield('my-script')
