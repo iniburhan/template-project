@@ -51,9 +51,9 @@ class MsKategoriController extends Controller
 
         // redirect
         if ($insert) {
-            return redirect('/kategori')->with('success', 'Data created successfully.');
+            return redirect('blog/kategori')->with('success', 'Data created successfully.');
         } else {
-            return redirect('/kategori')->with('error', 'Failed!');
+            return redirect('blog/kategori')->with('error', 'Failed!');
         }
     }
 
@@ -94,9 +94,9 @@ class MsKategoriController extends Controller
         $insert_history = HistoryLog::insert($data_history);
 
         if ($update) {
-            return redirect('/kategori')->with('success', 'Data updated successfully.');
+            return redirect('blog/kategori')->with('success', 'Data updated successfully.');
         } else {
-            return redirect('/kategori')->with('error', 'Failed!');
+            return redirect('blog/kategori')->with('error', 'Failed!');
         }
     }
 
@@ -122,9 +122,9 @@ class MsKategoriController extends Controller
         $insert_history = HistoryLog::insert($data_history);
 
         if ($delete) {
-            return redirect('/kategori')->with('success', 'Data Deleted.');
+            return redirect('blog/kategori')->with('success', 'Data Deleted.');
         } else {
-            return redirect('/kategori')->with('error', 'Failed!');
+            return redirect('blog/kategori')->with('error', 'Failed!');
         }
     }
 
@@ -156,9 +156,14 @@ class MsKategoriController extends Controller
         $insert_history = HistoryLog::insert($data_history);
         
         if ($restore) {
-            return redirect('/kategori')->with('success', 'Data Restored.');
+            return redirect('blog/kategori')->with('success', 'Data Restored.');
         } else {
-            return redirect('/kategori')->with('error', 'Failed!');
+            return redirect('blog/kategori')->with('error', 'Failed!');
         }
+    }
+
+    public function delete()
+    {
+        
     }
 }

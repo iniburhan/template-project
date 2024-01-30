@@ -102,7 +102,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <form action="{{ url('pfa-outcome/store') }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
+                <form action="{{ url('pfa/pfa-outcome/store') }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
                     <div class="modal-body">
 
                         @csrf
@@ -138,8 +138,8 @@
         </div>
     </div>
     
-    <!-- The Modal Show-->
     @foreach ($data['outcome'] as $item)
+        <!-- The Modal Show-->
         <div class="modal fade" id="show-modal{{$item->id}}">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
@@ -151,24 +151,19 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('pfa-outcome/update') }}" method="POST" enctype="multipart/form-data">
-                        <div class="modal-body">
-
-                            @csrf
-
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <div class="card-body">
-                                                <div class="form-body">
-                                                    <div class="row">
-                                                        <div class="col-md-12 col-12">
-                                                            <div class="form-group">
-                                                                <label for="first-name-vertical">Information Name</label>
-                                                                <input type="hidden" name = "id" value = "{{$item->id}}">
-                                                                <input type="text" name="information_name" value="{{ $item->information_name }}" class="form-control" readonly>
-                                                            </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="form-group">
+                                                            <label for="first-name-vertical">Information Name</label>
+                                                            <input type="hidden" name = "id" value = "{{$item->id}}">
+                                                            <input type="text" name="information_name" value="{{ $item->information_name }}" class="form-control" readonly>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -178,6 +173,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -199,7 +195,7 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('pfa-outcome/update') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('pfa/pfa-outcome/update') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             @csrf
@@ -249,7 +245,7 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('pfa-outcome/delete') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('pfa/pfa-outcome/delete') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id" value="{{$item->id}}">
                             @csrf  

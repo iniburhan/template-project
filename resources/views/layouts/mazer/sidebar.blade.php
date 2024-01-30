@@ -55,10 +55,10 @@
                </a>
                <ul class="submenu active">
                   <li class="submenu-item active ">
-                     <a href="{{url('/artikel')}}" class="submenu-link">Artikel</a>
+                     <a href="{{url('blog/artikel')}}" class="submenu-link">Artikel</a>
                   </li>
                   <li class="submenu-item  ">
-                     <a href="{{url('/kategori')}}" class="submenu-link">Kategori</a>
+                     <a href="{{url('blog/kategori')}}" class="submenu-link">Kategori</a>
                   </li> 
                </ul>
             </li>
@@ -69,11 +69,14 @@
                </a>
                <ul class="submenu active">
                   <li class="submenu-item active ">
-                     <a href="{{url('/pfa-income')}}" class="submenu-link">Income</a>
+                     <a href="{{url('pfa/pfa-income')}}" class="submenu-link">Income</a>
                   </li>
                   <li class="submenu-item  ">
-                     <a href="{{url('/pfa-outcome')}}" class="submenu-link">Outcome</a>
+                     <a href="{{url('pfa/pfa-outcome')}}" class="submenu-link">Outcome</a>
                   </li> 
+                  <li class="submenu-item  ">
+                     <a href="{{url('pfa/pfa-transaction')}}" class="submenu-link">Transaction</a>
+                  </li>
                </ul>
             </li>
             <li class="sidebar-item ">

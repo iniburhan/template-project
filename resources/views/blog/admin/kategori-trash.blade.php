@@ -251,7 +251,7 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('kategori/restore') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('blog/kategori/restore') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id" value="{{$item->id}}">
                             @csrf  

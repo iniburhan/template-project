@@ -48,7 +48,7 @@
                         <h4 class="card-title">Edit {{$datas->judul}}</h4>
                     </div>
 
-                    <form action="{{ url('artikel/update/'.$datas->id) }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
+                    <form action="{{ url('blog/artikel/update/'.$datas->id) }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
                     	@csrf
                     	<div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -89,7 +89,7 @@
 									                    <textarea id="summernote" name="isi">{{$datas->isi}}</textarea>
                                                       </div>
                                                       <div class="modal-footer">
-									                    <button type="submit" class="btn btn-primary">Edit</button>
+									                    <button type="submit" class="btn btn-primary">Update</button>
 									                  </div>
                                                     </div>	
                                                 </div>

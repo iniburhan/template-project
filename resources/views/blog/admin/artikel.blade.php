@@ -17,7 +17,7 @@
                <!--  <button type="button" class="btn icon icon-left btn-success mb-2 mt-3 btn-sm" data-bs-toggle="modal" data-bs-target="#create-modal">
                     <i data-feather="plus"></i> Add
                 </button> -->
-                <a href="{{url('/artikel/create')}}" class="btn icon icon-left btn-success mb-2 mt-3 btn-sm" role="button" aria-disabled="true"><i data-feather="plus"></i> Add Artikel</a>
+                <a href="{{url('blog/artikel/create')}}" class="btn icon icon-left btn-success mb-2 mt-3 btn-sm" role="button" aria-disabled="true"><i data-feather="plus"></i> Add Artikel</a>
             </div>
 
             @if(session()->has('error'))
@@ -78,7 +78,7 @@
                                                     <!-- <button type="button" class="btn icon btn-warning" data-bs-toggle="modal"
                                                         data-bs-target="#edit-modal{{$item->id}}"><i class="bi bi-pencil"></i>
                                                     </button> -->
-                                                    <a href="{{url('/artikel/edit/'.$item->id)}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-pencil"></i></a>
+                                                    <a href="{{url('blog/artikel/edit/'.$item->id)}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-pencil"></i></a>
 
                                                     @csrf
 
@@ -111,7 +111,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <form action="{{ url('kategori/store') }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
+                <form action="{{ url('blog/kategori/store') }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
                     <div class="modal-body">
 
                         @csrf
@@ -163,24 +163,19 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('kategori/update') }}" method="POST" enctype="multipart/form-data">
-                        <div class="modal-body">
-
-                            @csrf
-
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <div class="card-body">
-                                                <div class="form-body">
-                                                    <div class="row">
-                                                        <div class="col-md-12 col-12">
-                                                            <div class="form-group">
-                                                                <label for="first-name-vertical">Nama Kategori</label>
-                                                                <input type="hidden" name = "id" value = "{{$item->id}}">
-                                                                <input type="text" name="nama_kategori" value="{{ $item->nama_kategori }}" class="form-control" readonly>
-                                                            </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="form-group">
+                                                            <label for="first-name-vertical">Nama Kategori</label>
+                                                            <input type="hidden" name = "id" value = "{{$item->id}}">
+                                                            <input type="text" name="nama_kategori" value="{{ $item->nama_kategori }}" class="form-control" readonly>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -190,6 +185,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -211,7 +207,7 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('kategori/update') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('blog/kategori/update') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             @csrf
@@ -262,7 +258,7 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('artikel/delete') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('blog/artikel/delete') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id" value="{{$item->id}}">
                             @csrf  

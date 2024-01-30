@@ -72,9 +72,9 @@ class MsArtikelController extends Controller
 
         // redirect
         if ($insert) {
-            return redirect('/artikel')->with('success', 'Data created successfully.');
+            return redirect('blog/artikel')->with('success', 'Data created successfully.');
         } else {
-            return redirect('/artikel')->with('error', 'Failed!');
+            return redirect('blog/artikel')->with('error', 'Failed!');
         }
     }
 
@@ -101,7 +101,7 @@ class MsArtikelController extends Controller
         return view('blog/admin/artikel-edit')->with('data', $data);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $request->validate([
             'judul' => 'required',
@@ -127,9 +127,9 @@ class MsArtikelController extends Controller
         $insert_history = HistoryLog::insert($data_history);
 
         if ($update) {
-            return redirect('/artikel')->with('success', 'Data updated successfully.');
+            return redirect('blog/artikel')->with('success', 'Data updated successfully.');
         } else {
-            return redirect('/artikel')->with('error', 'Failed!');
+            return redirect('blog/artikel')->with('error', 'Failed!');
         }
     }
 
@@ -149,9 +149,9 @@ class MsArtikelController extends Controller
         $insert_history = HistoryLog::insert($data_history);
 
         if ($delete) {
-            return redirect('/artikel')->with('success', 'Data Deleted.');
+            return redirect('blog/artikel')->with('success', 'Data Deleted.');
         } else {
-            return redirect('/artikel')->with('error', 'Failed!');
+            return redirect('blog/artikel')->with('error', 'Failed!');
         }
     }
 
@@ -183,9 +183,9 @@ class MsArtikelController extends Controller
         $insert_history = HistoryLog::insert($data_history);
         
         if ($restore) {
-            return redirect('/artikel')->with('success', 'Data Restored.');
+            return redirect('blog/artikel')->with('success', 'Data Restored.');
         } else {
-            return redirect('/artikel')->with('error', 'Failed!');
+            return redirect('blog/artikel')->with('error', 'Failed!');
         }
     }
 }

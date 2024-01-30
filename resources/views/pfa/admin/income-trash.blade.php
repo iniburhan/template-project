@@ -8,7 +8,7 @@
     <section class="section">
         <div class="row" id="table-hover-row">
             <div class="col-md-6">
-                <h3 class="pt-3">Artikel</h3>
+                <h3 class="pt-3">Income</h3>
             </div>
             <!-- <div class="col-md-6 text-end">
                 <button type="button" class="btn icon icon-left btn-success mb-2 mt-3 btn-sm" data-bs-toggle="modal" data-bs-target="#create-modal">
@@ -42,7 +42,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" >
-                        <h4 class="card-title">Trash Artikel</h4>
+                        <h4 class="card-title">Trash Income</h4>
                     </div>
 
                     <div class="card-body table-responsive">
@@ -52,17 +52,15 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Judul Artikel</th>
-                                        <th>Kategori</th>
+                                        <th>Information</th>
                                         <th style="text-align:center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data['artikel'] as $item)
+                                    @foreach ($data['income'] as $item)
                                         <tr>
                                             <td>{{  $loop->iteration }}</td>
-                                            <td> {{ $item->judul }} </td>
-                                            <td> {{ $item->nama_kategori }} </td>
+                                            <td> {{ $item->information_name }} </td>
                                             <td style="text-align:center">
                                                 <form action="#" method="POST" style="text-align:center">
                                                     <input type="hidden" name="id" value = "{{$item->id}}">
@@ -94,7 +92,7 @@
         </div>
     </section>
     
-    @foreach ($data['artikel'] as $item)
+    @foreach ($data['income'] as $item)
         <!-- Modal Restore -->
         <div class="modal fade" id="restore-modal{{$item->id}}">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -102,16 +100,16 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Restore {{$item->judul}}</h4>
+                        <h4 class="modal-title">Restore {{$item->information_name}}</h4>
                         <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
-                    <form action="{{ url('blog/artikel/restore') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('pfa/pfa-income/restore') }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id" value="{{$item->id}}">
                             @csrf  
-                            Restore data {{$item->judul}}?
+                            Restore data {{$item->information_name}}?
                         </div>
 
                     <!-- Modal footer -->

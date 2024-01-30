@@ -48,8 +48,23 @@
                         <div>
                             <div class="card-body">
 
-                            <a href="{{url('/kategori/trash')}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-trash3-fill"> Kategori</i></a>
-                            <a href="{{url('/artikel/trash')}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-trash3-fill"> Artikel</i></a>
+                            <a href="{{url('blog/kategori/trash')}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-trash3-fill"> Kategori</i></a>
+                            <a href="{{url('blog/artikel/trash')}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-trash3-fill"> Artikel</i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" style="padding-bottom: 0px;">
+                        <h4 class="card-title">List Trash Personal Finance App</h4>
+                    </div class="row">
+                        <div>
+                            <div class="card-body">
+
+                            <a href="{{url('pfa/pfa-income/trash')}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-trash3-fill"> Income</i></a>
+                            <a href="{{url('pfa/pfa-outcome/trash')}}" class="btn icon btn-warning" role="button" aria-disabled="true"><i class="bi bi-trash3-fill"> Outcome</i></a>
                             
                         </div>
                     </div>

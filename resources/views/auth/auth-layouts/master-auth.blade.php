@@ -20,12 +20,18 @@
 </head>
 
 <body>
-    <script src="{{asset('assets/static/js/initTheme.js')}}"></script>
+    <script src="{{asset('template/mazer/assets/static/js/initTheme.js')}}"></script>
     <div id="auth">
         
         @yield('content')
 
     </div>
+
+    <!-- add Jquery -->
+    <script src="{{asset('template/mazer/assets/extensions/jquery/jquery.min.js')}}"></script>
+
+    @yield('my-script')
+
 </body>
 
 </html>

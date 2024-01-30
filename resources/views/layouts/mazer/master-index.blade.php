@@ -9,6 +9,10 @@
       <link rel="stylesheet" href="{{asset('template/mazer/assets/compiled/css/app.css')}}">
       <link rel="stylesheet" href="{{asset('template/mazer/assets/compiled/css/app-dark.css')}}">
 
+      <!-- Datatables -->
+      <link rel="stylesheet" href="{{asset('template/mazer/assets/extensions/simple-datatables/style.css')}}">
+      <link rel="stylesheet" href="{{asset('template/mazer//assets/compiled/css/table-datatable.css')}}">
+
       @yield('my-css')
 
    </head>
@@ -43,6 +47,10 @@
 
       <!-- add Jquery -->
       <script src="{{asset('template/mazer/assets/extensions/jquery/jquery.min.js')}}"></script>
+
+      <!-- Datatables -->
+      <script src="{{asset('template/mazer/assets/extensions/simple-datatables/umd/simple-datatables.js')}}"></script>
+      <script src="{{asset('template/mazer/assets/static/js/pages/simple-datatables.js')}}"></script>
 
       @yield('my-script')
 

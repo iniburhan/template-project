@@ -64,9 +64,9 @@ class MsOutcomeController extends Controller
 
         // redirect
         if ($insert) {
-            return redirect('/pfa-outcome')->with('success', 'Data created successfully.');
+            return redirect('pfa/pfa-outcome')->with('success', 'Data created successfully.');
         } else {
-            return redirect('/pfa-outcome')->with('error', 'Failed!');
+            return redirect('pfa/pfa-outcome')->with('error', 'Failed!');
         }
     }
 
@@ -113,9 +113,9 @@ class MsOutcomeController extends Controller
         $insert_history = HistoryLog::insert($data_history);
 
         if ($update) {
-            return redirect('/pfa-outcome')->with('success', 'Data updated successfully.');
+            return redirect('pfa/pfa-outcome')->with('success', 'Data updated successfully.');
         } else {
-            return redirect('/pfa-outcome')->with('error', 'Failed!');
+            return redirect('pfa/pfa-outcome')->with('error', 'Failed!');
         }
     }
 
@@ -135,9 +135,9 @@ class MsOutcomeController extends Controller
         $insert_history = HistoryLog::insert($data_history);
 
         if ($delete) {
-            return redirect('/pfa-outcome')->with('success', 'Data Deleted.');
+            return redirect('pfa/pfa-outcome')->with('success', 'Data Deleted.');
         } else {
-            return redirect('/pfa-outcome')->with('error', 'Failed!');
+            return redirect('pfa/pfa-outcome')->with('error', 'Failed!');
         }
     }
 
@@ -150,7 +150,7 @@ class MsOutcomeController extends Controller
         ];
         // dd($data);
 
-        return view('blog/admin/artikel-trash')->with('data', $data);
+        return view('pfa/admin/outcome-trash')->with('data', $data);
     }
 
     public function restore(Request $request)
@@ -169,9 +169,9 @@ class MsOutcomeController extends Controller
         $insert_history = HistoryLog::insert($data_history);
         
         if ($restore) {
-            return redirect('/pfa-outcome')->with('success', 'Data Restored.');
+            return redirect('pfa/pfa-outcome')->with('success', 'Data Restored.');
         } else {
-            return redirect('/pfa-outcome')->with('error', 'Failed!');
+            return redirect('pfa/pfa-outcome')->with('error', 'Failed!');
         }
     }
 }
