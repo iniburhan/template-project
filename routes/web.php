@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/artikel/delete', [App\Http\Controllers\Blog\Admin\MsArtikelController::class, 'destroy']);
         Route::get('/artikel/trash', [App\Http\Controllers\Blog\Admin\MsArtikelController::class, 'trash']);
         Route::post('/artikel/restore', [App\Http\Controllers\Blog\Admin\MsArtikelController::class, 'restore']);
+        Route::post('/artikel/delete-trash', [App\Http\Controllers\Blog\Admin\MsArtikelController::class, 'delete']);
         // Route::get('/products/get-all-product', [App\Http\Controllers\POS\Admin\MsProductsController::class, 'getAllProduct']);
         // Route::get('/products/get-product-show', [App\Http\Controllers\POS\Admin\MsProductsController::class, 'getProductShow']);
 
@@ -46,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/kategori/delete', [App\Http\Controllers\Blog\Admin\MsKategoriController::class, 'destroy']);
         Route::get('/kategori/trash', [App\Http\Controllers\Blog\Admin\MsKategoriController::class, 'trash']);
         Route::post('/kategori/restore', [App\Http\Controllers\Blog\Admin\MsKategoriController::class, 'restore']);
+        Route::post('/kategori/delete-trash', [App\Http\Controllers\Blog\Admin\MsKategoriController::class, 'delete']);
     });
     
 

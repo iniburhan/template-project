@@ -76,8 +76,11 @@
 
                                                     @csrf
 
-                                                    <button type="button" title="restore"  class="btn icon btn-danger"data-bs-toggle="modal"
+                                                    <button type="button" title="restore"  class="btn icon btn-warning"data-bs-toggle="modal"
                                                         data-bs-target="#restore-modal{{$item->id}}"><i class="bi bi-bootstrap-reboot"></i>
+                                                    </button>
+                                                    <button type="button" title="delete"  class="btn icon btn-danger"data-bs-toggle="modal"
+                                                        data-bs-target="#delete-modal{{$item->id}}"><i class="bi bi-trash3-fill"></i>
                                                     </button>
                                                 </form>
                                             </td>
@@ -140,8 +143,8 @@
         </div>
     </div>
     
-    <!-- The Modal Show-->
     @foreach ($data['kategori'] as $item)
+        <!-- The Modal Show-->
         <div class="modal fade" id="show-modal{{$item->id}}">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
@@ -261,6 +264,35 @@
                     <!-- Modal footer -->
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-warning">Restore</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Delete -->
+        <div class="modal fade" id="delete-modal{{$item->id}}">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete {{$item->nama_kategori}}</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <form action="{{ url('blog/kategori/delete-trash') }}" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            @csrf  
+                            Delete data {{$item->nama_kategori}}?
+                        </div>
+
+                    <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger">Delete</button>
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </form>

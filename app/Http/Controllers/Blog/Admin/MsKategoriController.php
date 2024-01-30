@@ -162,8 +162,22 @@ class MsKategoriController extends Controller
         }
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-        
+        // dd($request->id);
+        $delete_trash = MsKategori::where('id', $request->id)->delete();
+
+        $data_history  = [
+            'information' => 'Delete Data Kategori in Trash',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
+
+        if ($delete_trash) {
+            return redirect('blog/kategori/trash')->with('success', 'Data Deleted!.');
+        } else {
+            return redirect('blog/kategori/trash')->with('error', 'Failed!');
+        }
     }
 }

@@ -188,4 +188,23 @@ class MsArtikelController extends Controller
             return redirect('blog/artikel')->with('error', 'Failed!');
         }
     }
+
+    public function delete(Request $request)
+    {
+        // dd($request->id);
+        $delete_trash = MsArtikel::where('id', $request->id)->delete();
+
+        $data_history  = [
+            'information' => 'Delete Data Artikel in Trash',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
+
+        if ($delete_trash) {
+            return redirect('blog/artikel/trash')->with('success', 'Data Deleted!.');
+        } else {
+            return redirect('blog/artikel/trash')->with('error', 'Failed!');
+        }
+    }
 }
