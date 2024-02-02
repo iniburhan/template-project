@@ -23,7 +23,6 @@ class MsIncomeController extends Controller
 
         $data = [
             'income' => MsIncome::where('flag', 1)->get(),
-            // 'kategori' => MsKategori::where('flag', 1)->get(),
         ];
         // dd($data);
 
@@ -173,5 +172,37 @@ class MsIncomeController extends Controller
         } else {
             return redirect('pfa/pfa-income')->with('error', 'Failed!');
         }
+    }
+
+    public function delete(Request $request)
+    {
+        // dd($request->id);
+        $delete_trash = MsIncome::where('id', $request->id)->delete();
+
+        $data_history  = [
+            'information' => 'Delete Data Income in Trash',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
+
+        if ($delete_trash) {
+            return redirect('pfa/pfa-income/trash')->with('success', 'Data Deleted!.');
+        } else {
+            return redirect('pfa/pfa-income/trash')->with('error', 'Failed!');
+        }
+    }
+
+    public function getAllIncome()
+    {
+        $income = MsIncome::where('flag', 1)->get();
+        return $income;
+    }
+
+    public function getIncomeShow(Request $request)
+    {
+        $id = $request->id;
+        $income = MsIncome::where('flag', 1)->where('id', $id)->first();
+        return $income;
     }
 }

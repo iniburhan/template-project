@@ -23,7 +23,6 @@ class MsOutcomeController extends Controller
 
         $data = [
             'outcome' => MsOutcome::where('flag', 1)->get(),
-            // 'kategori' => MsKategori::where('flag', 1)->get(),
         ];
         // dd($data);
 
@@ -172,6 +171,25 @@ class MsOutcomeController extends Controller
             return redirect('pfa/pfa-outcome')->with('success', 'Data Restored.');
         } else {
             return redirect('pfa/pfa-outcome')->with('error', 'Failed!');
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        // dd($request->id);
+        $delete_trash = MsOutcome::where('id', $request->id)->delete();
+
+        $data_history  = [
+            'information' => 'Delete Data Outcome in Trash',
+            'apps' => 'Blog',    
+            'created_by'=> Auth::user()->id,
+        ];
+        $insert_history = HistoryLog::insert($data_history);
+
+        if ($delete_trash) {
+            return redirect('pfa/pfa-outcome/trash')->with('success', 'Data Deleted!.');
+        } else {
+            return redirect('pfa/pfa-outcome/trash')->with('error', 'Failed!');
         }
     }
 }

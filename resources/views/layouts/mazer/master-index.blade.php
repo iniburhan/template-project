@@ -11,7 +11,11 @@
 
       <!-- Datatables -->
       <link rel="stylesheet" href="{{asset('template/mazer/assets/extensions/simple-datatables/style.css')}}">
-      <link rel="stylesheet" href="{{asset('template/mazer//assets/compiled/css/table-datatable.css')}}">
+      <link rel="stylesheet" href="{{asset('template/mazer/assets/compiled/css/table-datatable.css')}}">
+      <!-- Sweetalert -->
+      <link rel="stylesheet" href="{{asset('template/mazer/assets/extensions/sweetalert2/sweetalert2.min.css')}}">
+      <!-- Fontawesome -->
+      <link rel="stylesheet" href="{{asset('template/mazer/assets/extensions/@fortawesome/fontawesome-free/css/all.min.css')}}">
 
       @yield('my-css')
 
@@ -44,13 +48,16 @@
       <script src="{{asset('template/mazer/assets/static/js/components/dark.js')}}"></script>
       <script src="{{asset('template/mazer/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
       <script src="{{asset('template/mazer/assets/compiled/js/app.js')}}"></script>
-
-      <!-- add Jquery -->
-      <script src="{{asset('template/mazer/assets/extensions/jquery/jquery.min.js')}}"></script>
-
       <!-- Datatables -->
       <script src="{{asset('template/mazer/assets/extensions/simple-datatables/umd/simple-datatables.js')}}"></script>
       <script src="{{asset('template/mazer/assets/static/js/pages/simple-datatables.js')}}"></script>
+      <!-- Sweetalert -->
+      <script src="{{asset('template/mazer/assets/extensions/sweetalert2/sweetalert2.min.js')}}"></script>
+      <script src="{{asset('template/mazer/assets/static/js/pages/sweetalert2.js')}}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+      <!-- add Jquery -->
+      <script src="{{asset('template/mazer/assets/extensions/jquery/jquery.min.js')}}"></script>
 
       @yield('my-script')
 

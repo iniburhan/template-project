@@ -63,6 +63,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/pfa-income/delete', [App\Http\Controllers\PFA\Admin\MsIncomeController::class, 'destroy']);
         Route::get('/pfa-income/trash', [App\Http\Controllers\PFA\Admin\MsIncomeController::class, 'trash']);
         Route::post('/pfa-income/restore', [App\Http\Controllers\PFA\Admin\MsIncomeController::class, 'restore']);
+        Route::get('/pfa-income/get-all-income', [App\Http\Controllers\PFA\Admin\MsIncomeController::class, 'getAllIncome']);
+        Route::get('/pfa-income/get-income-show', [App\Http\Controllers\PFA\Admin\MsIncomeController::class, 'getIncomeShow']);
 
         // route Outcome
         Route::get('/pfa-outcome', [App\Http\Controllers\PFA\Admin\MsOutcomeController::class, 'index']);
